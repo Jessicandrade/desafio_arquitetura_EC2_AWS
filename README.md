@@ -14,30 +14,30 @@ O desafio propôs duas possibilidades de arquitetura:
 
 Escolhi a arquitetura **EC2 + EBS**, pois ela se conecta diretamente ao modelo de e-commerce desenvolvido, permitindo hospedar o site, armazenar dados de forma persistente e gerenciar informações de usuários e pedidos de camisetas em um banco de dados relacional.
 
+# Diagrama com a arquitetura
+
+![Arquitetura EC2](images/DesafioArquitetura_EC2.drawio.png)
+
 # Arquitetura Proposta
 
-A arquitetura foi desenhada no draw.io e representa os principais conceitos abordados no módulo:
+A arquitetura foi desenhada no draw.io e representa os principais conceitos abordados no módulo instâncias:
 
 - Usuário acessa o site hospedado em uma instância **EC2**.
 - A instância **EC2** está conectada a volumes **EBS**, garantindo **armazenamento persistente**.
 - O sistema utiliza **RDS** para gerenciar dados relacionais (usuários, pedidos, produtos).
-- Uma **AMI** foi criada para permitir **replicação e recuperação rápida** da instância.
+- Uma **AMI** foi criada para permitir **replicação e recuperação rápida** da instância, em caso de falha.
 - Foram utilizadas duas regiões (São Paulo e Oregon), destacando a importância de **Availability Zones** para resiliência.
-
-# Diagrama com a arquitetura
-
-`/diagramas/arquitetura.drawio`
 
 ### Insights Técnicos
 
 - **EBS**: armazenamento em bloco acoplado à EC2, garantindo persistência dos dados.
 - **RDS**: facilita a administração do banco de dados e oferece maior disponibilidade.
 - **AMI**: permite criar cópias da instância e manter um plano de recuperação.
-- **Availability Zones**: reforça conceitos de latência, custo e disponibilidade das regiões.
+- **Availability Zones**: disponibilidade das regiões.
 
 # Conclusão
 Desenvolvi esse projeto, pensando na melhor performance e custos para meu software de camisetas colecionáveis. 
-Seguindo essa abordagem, percebi a importancia de utilizar a instancias EC2 e EBS, em um sistema que precisa de um monitoramento contínuo e que tem a possibilidade de crescer. Então quis destacar as regiões São Paulo oferecendo menor latência ao acesso dos usuários e a região Oregon nos Estados Unidos, como menor custo para o sistema.
+Seguindo essa abordagem, percebi a importancia de utilizar a instancias EC2 e EBS, em um sistema que precisa de um monitoramento contínuo e que tem a possibilidade de crescer. Então quis destacar as regiões São Paulo oferecendo baixa latência ao acesso dos usuários e a região Oregon nos Estados Unidos, como menor custo para o sistema.
 
 
 
